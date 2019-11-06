@@ -101,6 +101,7 @@ def run_command(command):
 def _read_default_config_file(file_name):
     templates_dir = os.path.join(os.path.dirname(__file__), 'config_templates')
     file_path = os.path.join(templates_dir, file_name)
+    print('file_path', file_path)
     if six.PY2:
         with open(file_path) as f:
             config = f.read()
