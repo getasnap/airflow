@@ -586,6 +586,7 @@ if not os.path.isfile(AIRFLOW_CONFIG):
     with open(AIRFLOW_CONFIG, 'w') as f:
         cfg = parameterized_config(DEFAULT_CONFIG)
         cfg = cfg.split(TEMPLATE_START)[-1].strip()
+        print(cfg)
         if six.PY2:
             cfg = cfg.encode('utf8')
         f.write(cfg)
