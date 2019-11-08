@@ -57,6 +57,7 @@ class SlackWebhookOperator(SimpleHttpOperator):
                  message="",
                  channel=None,
                  username=None,
+                 attachments=None,
                  icon_emoji=None,
                  link_names=False,
                  proxy=None,
@@ -68,6 +69,7 @@ class SlackWebhookOperator(SimpleHttpOperator):
         self.http_conn_id = http_conn_id
         self.webhook_token = webhook_token
         self.message = message
+        self.attachments = attachments
         self.channel = channel
         self.username = username
         self.icon_emoji = icon_emoji
@@ -84,6 +86,7 @@ class SlackWebhookOperator(SimpleHttpOperator):
             self.webhook_token,
             self.message,
             self.channel,
+            self.attachments,
             self.username,
             self.icon_emoji,
             self.link_names,

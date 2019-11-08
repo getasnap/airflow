@@ -55,6 +55,7 @@ class SlackWebhookHook(HttpHook):
                  http_conn_id=None,
                  webhook_token=None,
                  message="",
+                 attachments=None,
                  channel=None,
                  username=None,
                  icon_emoji=None,
@@ -70,6 +71,7 @@ class SlackWebhookHook(HttpHook):
         self.username = username
         self.icon_emoji = icon_emoji
         self.link_names = link_names
+        self.attachments = attachments
         self.proxy = proxy
 
     def _get_token(self, token, http_conn_id):
@@ -105,6 +107,8 @@ class SlackWebhookHook(HttpHook):
             cmd['icon_emoji'] = self.icon_emoji
         if self.link_names:
             cmd['link_names'] = 1
+        if self.attachments:
+            cmd['attachments'] = self.attachments
 
         # there should always be a message to post ;-)
         cmd['text'] = self.message
