@@ -187,6 +187,7 @@ class ECSOperator(BaseOperator):
             self.log.info('ECS Task logs output:')
             task_id = self.arn.split("/")[-1]
             stream_name = "{}/{}".format(self.awslogs_stream_prefix, task_id)
+            self.log.info('streamname={0}'.format(stream_name))
             for event in self.get_logs_hook().get_log_events(self.awslogs_group, stream_name):
                 dt = datetime.fromtimestamp(event['timestamp'] / 1000.0)
                 self.log.info("[{}] {}".format(dt.isoformat(), event['message']))

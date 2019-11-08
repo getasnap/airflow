@@ -78,6 +78,8 @@ class AwsLogsHook(AwsHook):
             else:
                 token_arg = {}
 
+            print('log_group', log_group)
+            print('log_stream_name', log_stream_name)
             response = self.get_conn().get_log_events(logGroupName=log_group,
                                                       logStreamName=log_stream_name,
                                                       startTime=start_time,
