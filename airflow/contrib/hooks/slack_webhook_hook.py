@@ -112,6 +112,7 @@ class SlackWebhookHook(HttpHook):
 
         # there should always be a message to post ;-)
         cmd['text'] = self.message
+        print('MESSAGE\n\n\n\n', cmd)
         return json.dumps(cmd)
 
     def execute(self):
