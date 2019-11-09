@@ -127,6 +127,8 @@ class SlackWebhookHook(HttpHook):
             proxies = {'https': self.proxy}
 
         slack_message = self._build_slack_message()
+        print('WEBHOOK_TOKEN', self.webhook_token)
+        print('SLACK_MESSAGE', slack_message)
         self.run(endpoint=self.webhook_token,
                  data=slack_message,
                  headers={'Content-type': 'application/json'},
