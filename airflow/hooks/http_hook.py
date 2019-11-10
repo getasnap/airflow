@@ -125,6 +125,8 @@ class HttpHook(BaseHook):
 
         prepped_request = session.prepare_request(req)
         self.log.info("Sending '%s' to url: %s", self.method, url)
+        import pprint
+        pprint.pprint(prepped_request)
         return self.run_and_check(session, prepped_request, extra_options)
 
     def check_response(self, response):
